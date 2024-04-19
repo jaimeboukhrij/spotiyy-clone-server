@@ -67,6 +67,26 @@ const userSchema = new Schema(
       }
     }
   ],
+  favouriteArtists: [
+    {
+      id: {
+        type: String,
+        required: true
+      },
+      name:{
+        type:String,
+        required:true
+      },
+      urlImg:{
+        type:String,
+        required:true
+      },
+      typeMusic: {
+        type: String,
+        required: true
+      }
+    }
+  ],
 
 
   },
