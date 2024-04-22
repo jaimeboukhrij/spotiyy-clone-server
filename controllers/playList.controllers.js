@@ -41,6 +41,22 @@ const getMyPlayLists = (req, res, next) => {
       res.status(500).json({ message: 'Error interno del servidor' });
     });
 };
+const deleteMyPlayList = (req, res, next) => {
+  const { playListId } = req.params;
+  console.log('holaa',req.params)
+  PlayList.findByIdAndDelete(playListId)
+    .then(data => {
+      if (!data) {
+        return res.status(404).json({ message: "Playlist not found" });
+      }
+      res.status(200).json({ message: "Playlist deleted successfully", data });
+    })
+    .catch(e => {
+      console.error(e);
+      res.status(500).json({ message: "Internal server error" });
+    });
+};
+
 
 const getPlayListInfo = (req,res,next) =>{
   const {playListId} = req.params; // Obtiene el userId de req.params
@@ -55,4 +71,4 @@ PlayList.findById(playListId)
 };
 
 
-module.exports = {savePlayList,createPlayList,getMyPlayLists,getPlayListInfo}
+module.exports = {savePlayList,createPlayList,getMyPlayLists,getPlayListInfo,deleteMyPlayList}
