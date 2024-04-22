@@ -1,15 +1,16 @@
-# fly.toml app configuration file generated for serverspotify on 2024-04-22T16:41:47+02:00
+# fly.toml app configuration file generated for serverspotify-long-shape-3962 on 2024-04-22T17:00:05+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'serverspotify'
+app = 'serverspotify-long-shape-3962'
 primary_region = 'mad'
 
 [build]
+  image = 'flyio/hellofly:latest'
 
 [http_service]
-  internal_port = 3000
+  internal_port = 3005
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
