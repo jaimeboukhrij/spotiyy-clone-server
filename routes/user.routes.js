@@ -4,7 +4,7 @@ const { isAuthenticated } = require("../middlewares/verifyToken.middleware")
 const router = require("express").Router()
 
 
-router.put("/recentyListened",editRecentyListened )
+router.put("/recentyListened",isAuthenticated,editRecentyListened )
 router.get("/recentyListened/:userId",getRecentyListened )
 router.put("/favouriteArtist",editFavouriteArtist)
 router.get("/favouriteArtist/:userId",getFavouriteArtists)
