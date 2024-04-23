@@ -48,7 +48,7 @@ const editFavouriteArtist = (req,res,next) =>{
         const filterData = user.favouriteArtists.filter(elem => elem.id !== idArtist)
         data = filterData
       }else{
-        const newData = {id:idArtist, name:headerInfo.name,urlImg:artist.imgUrl,typeMusic:'artis'}
+        const newData = {id:idArtist, name:headerInfo.name,urlImg:headerInfo.headerImage,typeMusic:'artis'}
         data = [...user.favouriteArtists,newData]
       }
       User.findByIdAndUpdate(userId, { favouriteArtists: data })
